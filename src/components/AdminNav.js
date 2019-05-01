@@ -1,6 +1,8 @@
 
 import React from "react";
 import {Link} from "react-router-dom";
+import "../scss/nav.scss"
+import firebase from "../firebase/firebase";
 import {
     Collapse,
     Navbar,
@@ -24,42 +26,40 @@ import {
         isOpen: !this.state.isOpen
       });
     }
+
+    logOut = () =>{
+      firebase.auth().signOut()
+    }
+
     render() {
       return (
-        <div  className={"container"}>
-          <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">OM Admin</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
-                <NavItem>
-                    <Link to="/admin" className={"nav-link"}>Dashboard</Link>
-                </NavItem>
-                <NavItem>
-                    <Link to="/admin/addevent" className={"nav-link"}>Add event</Link>
-                </NavItem>
-                <NavItem>
-                    <Link to="/admin/registeredtable" className={"nav-link"}>Registration overview</Link>
-                </NavItem>
-                <NavItem>
-                    <Link to="/admin/editevent" className={"nav-link"}>Edit events</Link>
-                </NavItem>
-              </Nav>
-            </Collapse>
-          </Navbar>
+        <div  className="container-fluid nav-container">
+          <div className="container">
+            <Navbar  light expand="md">
+              <NavbarBrand href="/">OM Admin</NavbarBrand>
+              <NavbarToggler onClick={this.toggle} />
+              <Collapse isOpen={this.state.isOpen} navbar>
+                <Nav className="ml-auto" navbar>
+                  <NavItem>
+                      <Link to="/" className="nav-link">Dashboard</Link>
+                  </NavItem>
+                  <NavItem>
+                      <Link to="/addevent" className="nav-link">Přidat událost</Link>
+                  </NavItem>
+                  <NavItem>
+                      <Link to="/registeredtable" className="nav-link">Přehled registrací</Link>
+                  </NavItem>
+                  <NavItem>
+                      <Link to="/editevent" className="nav-link">Upravit událost</Link>
+                  </NavItem>
+                  <NavItem>
+                      <button className="nav-link" onClick={this.logOut} >Odhlásit</button>
+                  </NavItem>
+                </Nav>
+              </Collapse>
+            </Navbar>
+          </div>
         </div>
       );
     }
   }
-
-/* const AdminNav = () => (
-    <header>
-        <nav className={"navbar navbar-expand-l"}>
-        <Link to="/admin">Dashboard</Link>
-        <Link to="/admin/addevent">Add Event</Link>
-        <Link to="/admin/registeredtable">Poeple who are registered</Link>
-        </nav>
-    </header>
-);
-
-export default AdminNav */

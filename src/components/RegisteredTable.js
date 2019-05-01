@@ -3,6 +3,7 @@ import AdminNav from "./AdminNav";
 import ReactTable from "react-table";
 import firebase from "../firebase/firebase"
 import 'react-table/react-table.css';
+import Footer from "./Footer";
 
 class RegisteredTable extends React.Component {
 
@@ -23,20 +24,20 @@ class RegisteredTable extends React.Component {
 
     render(){
       const columns = [{
-        Header: 'Event',
-        accessor: 'name' // String-based value accessors!
+        Header: 'Událost',
+        accessor: 'name'
       }, {
-        Header: 'Date',
+        Header: 'Datum',
         accessor: 'date',
       }, {
-        Header: 'Registered people',
+        Header: 'Registrovaní lidé',
         columns:[{
-          Header: "Name",
+          Header: "Jméno",
           id:"RegisteredNames",
           accessor: d => d.registration && Object.values(d.registration).map((singleReg) => <p>{singleReg.name}</p>)
         },
         {
-          Header: "Persons",
+          Header: "Počet osob",
           id:"RegisteredCount",
           accessor: d => d.registration && Object.values(d.registration).map((singleReg) => <p>{singleReg.personCount}</p>)
         },
@@ -56,6 +57,7 @@ class RegisteredTable extends React.Component {
             data={this.state.data}
             columns={columns}
             />
+            <Footer />
           </div>
         )
     }

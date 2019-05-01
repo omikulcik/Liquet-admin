@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AppRouter from "./routers/AppRouter";
+import firebase from "./firebase/firebase";
+import Login from "./components/Login"
 
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <AppRouter />
-      </div>
-    );
-  }
-}
 
-export default App;
+
+export default() => (
+  <div>
+    <p>Skkk</p>
+  </div>
+)

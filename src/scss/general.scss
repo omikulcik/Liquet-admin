@@ -1,1 +1,93 @@
+@import "variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+* {
+    box-sizing: border-box;
+  }
+  
+html {
+    font-size: 62.5%;
+  }
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: $s;
+    color: $black;
+}
+
 img {max-width: 100%;}
+
+.admin-preview {
+    max-height: 250px;
+}
+
+.btn {
+  background-color: $wine;
+  border: 1px solid $tan;
+  color: white;
+  font-size: $xs;;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  letter-spacing: .1em;
+  padding: 0.75rem 1.6rem;
+  border-radius: 2rem;
+  position: relative;
+
+}
+
+.btn:hover {
+  background-color: $wine;
+  box-shadow: 0 6px 16px 0 rgba(0,0,0,.09);
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active {
+  background-color: $wine;
+}
+
+.auth {
+  form{
+    margin-top: 10rem;
+    text-align: center;
+    min-width: 40rem;
+    .form-item {
+      display: grid;
+      grid-template-columns: 35% 65%;
+      margin-top: 1rem;
+      width: 100%;
+    }
+    button{
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+*:focus{
+  outline-color: transparent;
+}
+
+h2{
+  font-weight: bold;
+  font-size: $l;
+  padding: 1.5rem 0;
+}
+
+h3{
+  font-weight: bold;
+  font-size: $m;
+  padding: 1rem 0;
+}
+
+.btn a {
+  color: white;
+}
+
+.progress {
+  font-size: $s;
+  height: 2rem;
+
+}
+
+a:hover {
+  text-decoration: none
+}
