@@ -34,17 +34,17 @@ class RegisteredTable extends React.Component {
         columns:[{
           Header: "Jméno",
           id:"RegisteredNames",
-          accessor: d => d.registration && Object.values(d.registration).map((singleReg) => <p>{singleReg.name}</p>)
+          accessor: d => d.registration && Object.values(d.registration).map((singleReg) => <p key={singleReg.registrationTimeStamp}>{singleReg.name}</p>)
         },
         {
           Header: "Počet osob",
           id:"RegisteredCount",
-          accessor: d => d.registration && Object.values(d.registration).map((singleReg) => <p>{singleReg.personCount}</p>)
+          accessor: d => d.registration && Object.values(d.registration).map((singleReg) => <p key={singleReg.registrationTimeStamp}>{singleReg.personCount}</p>)
         },
         {
           Header: "Voucher",
           id:"RegisteredVoucher",
-          accessor: d => d.registration && Object.values(d.registration).map((singleReg) => <p>{singleReg.voucherCode}</p>)
+          accessor: d => d.registration && Object.values(d.registration).map((singleReg) => <p key={singleReg.registrationTimeStamp}>{singleReg.voucherCode}</p>)
         },
       
       ]
